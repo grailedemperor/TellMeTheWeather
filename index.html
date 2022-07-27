@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link rel="stylesheet" href="./style.css" >
-    <link rel="script" href="./script.js">
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 
     <title> HEED E'S STORM </title>
@@ -18,121 +16,60 @@
       <h1 id="WeatherDashboard" class="display-4">WEATHER</h1>
     </div>
   </header>
+
 <body>
-  <section class="main">
-    <div class="div1 .col-xs-6 .col-md-4">
-      <div>
-      <h1 id="cityh1"><strong>Search for a city:</strong></h1>
-        <form action="" method="get" class="cityInput"></form>
-      </div>
-      <div id="cityInput">
-          <input class="form-control" type="text" placeholder="San Diego" name="city" id="city" required>
-          <button id="cityInputBtn" onclick="function displayFormData()" class="btn btn btn-primary btn-lg btn-block" type="button">
-          Search
-          </button>
-      </div>
-  
-      <div id="cityList">
-          
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Los Angeles
-          </button>
+  <main class="flex-row justify-space-between">
+    <div class="flex-row justify-space-between col-12">
+      
+     <section class ="col-12 col-md-4">
+      <div class="card">
+      <h3 class="card-header text-uppercase" >Search for a city:</h3>
 
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          New York
-          </button>
+          <form id="cityInput" class="card-body">
+           <label class="form-label" for="cityname"></label>
+           <input class="form-input" type="text" placeholder="San Diego" name="city" id="city" autofocus="true">
+           <button id="cityInputBtn" class="btn btn btn-primary btn-lg btn-block" type="submit">
+           Search
+           </button>
+          </form>
+        </div>
+     </section> 
 
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Tokyo
-          </button>
+     <div id="currentweather class="col-12 col-md-8 card hidden">
+      <h2 id="weatherstatus" class="card-header"></h2>
+      <div id="currentweatherinfo" class="card-body"></div>
+     </div>
 
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Paris
-          </button>
+    </div>
 
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Geneva
-          </button>
-
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Santorini
-          </button>
-
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Rome
-          </button>
-
-          <button onclick="function displayButtonText2()" class="btn btn-light btn-lg btn-block" type="button">
-          Barcelona
-          </button>
-          
+      
+    <section class="flex-row justify-space-between col-12">
+      
+      <div id="cityList" class="col-12 col-md-4">
+        <div id="history" class="card">
+          <h3 class="card-header text-uppercase">
+            Search History
+            <i id="trash" class="fas fa-trash" title="Clear History"></i>
+          </h3>
+          <div id="history-buttons" class="card-body"></div>
+          </div>
+        </div>
       </div> 
-    </div>  
 
-
-    <section class="section1 .col-xs-12 .col-sm-6 .col-md-8">
-      <div class="CurrentWeather">
-       <h1> <strong> <span id="SelectedCity">SelectedCity</span> <span id="TodaysDate">TodaysDate</span> </strong> </h1>
-       <p> Temp:<span id="TodaysTemp"> 79.01</span>&#8457</p>
-       <p> Wind:<span id="TodaysWind"> 6.67 </span>MPH</p>
-       <p> Humidity:<span id="TodaysHumidity"> 46 </span>%</p>
-       <p> UV Index:<span id="TodaysUVIndex"> 0.47</span></p>
-      </div>
+      <section class="forecastcontainer card col-12 col-md-8 hidden">
+       <h2 id="5DayForecastHeadline" class="card-header"></h2>
+        <div id="container" class="card-body flex-row justify-space-around">
+        </div>
+      </section>
     </section>
+  </main>
+  <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="./script.js"></script>
 
-   <section class=" 5DayForecast section2 .col-xs-12 .col-sm-6 .col-md-8" >
-      <div id="5DayForecastHeadline">
-        <h1> <strong>5 Day Forecast:</strong> </h1>
-      </div>
-    <div id="container">
-      <div class="img">
-        <header class="forecastDate"><strong>07/24/2022</strong></header>
-        <img src="./Assets/front view new_FINAL.jpg" alt="!" height="100%" width="100%"/>
-        <p><strong> Temp:<span id="Temp1"> 79.01</span>&#8457</strong></p>
-        <p><strong> Wind:<span id="Wind1"> 6.67 </span>MPH</strong></p>
-        <p><strong> Humidity:<span id="Humidity1"> 46 </span>%</strong></p>
-      </div>
-
-      <div class="img">
-        <header class="forecastDate"><strong>7/25/2022</strong></header>
-        <img src="./Assets/front view new_FINAL.jpg" alt="!" height="100%" width="100%"/>
-        <p><strong> Temp:<span id="Temp2"> 79.01</span>&#8457</strong></p>
-        <p><strong> Wind:<span id="Wind2"> 6.67 </span>MPH</strong></p>
-        <p><strong> Humidity:<span id="Humidity2"> 46 </span>%</strong></p>
-      </div>
-
-      <div class="img">
-        <header class="forecastDate"><strong>07/26/2022</strong></header>
-        <img src="./Assets/front view new_FINAL.jpg" alt="!" height="100%" width="100%"/>
-        <p><strong> Temp:<span id="Temp3"> 79.01</span>&#8457</strong></p>
-        <p><strong> Wind:<span id="Wind3"> 6.67 </span>MPH</strong></p>
-        <p><strong> Humidity:<span id="Humidity3"> 46 </span>%</strong></p>
-      </div>
-  
-
-      <div class="img">
-        <header class="forecastDate"><strong>7/27/2022</strong></header>
-        <img src="./Assets/front view new_FINAL.jpg" alt="!" height="100%" width="100%"/>
-        <p><strong> Temp:<span id="Temp4"> 79.01</span>&#8457</strong></p>
-        <p><strong> Wind:<span id="Wind4"> 6.67 </span>MPH</strong></p>
-        <p><strong> Humidity:<span id="Humidity4"> 46 </span>%</strong></p>
-      </div>
-    
-
-      <div class="img">
-        <header class="forecastDate"><strong>07/28/2022</strong></header>
-        <img src="./Assets/front view new_FINAL.jpg" alt="!" height="100%" width="100%"/>
-        <p><strong> Temp:<span id="Temp5"> 79.01</span>&#8457</strong></p>
-        <p><strong> Wind:<span id="Wind5"> 6.67 </span>MPH</strong></p>
-        <p><strong> Humidity:<span id="Humidity5"> 46 </span>%</strong></p>
-      </div>
-    </div> 
-   </section>
-
-  </section> 
 </body>
-  <!-- <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-  ></script> -->
+
 </html>
